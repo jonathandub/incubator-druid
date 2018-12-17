@@ -61,7 +61,7 @@ public class ApproximateHistogramFoldingSerde extends ComplexMetricSerde
         Object rawValue = inputRow.getRaw(metricName);
 
         if (rawValue == null) {
-          return new ApproximateHistogram(0);
+          return null;
         } else if (rawValue instanceof ApproximateHistogram) {
           return (ApproximateHistogram) rawValue;
         } else {
