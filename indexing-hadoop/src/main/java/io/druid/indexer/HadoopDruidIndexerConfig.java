@@ -51,6 +51,7 @@ import io.druid.java.util.common.granularity.Granularity;
 import io.druid.java.util.common.guava.FunctionalIterable;
 import io.druid.java.util.common.jackson.JacksonUtils;
 import io.druid.java.util.common.logger.Logger;
+import io.druid.js.JavaScriptConfig;
 import io.druid.segment.IndexIO;
 import io.druid.segment.IndexMerger;
 import io.druid.segment.IndexMergerV9;
@@ -114,6 +115,7 @@ public class HadoopDruidIndexerConfig
                     binder, Key.get(DruidNode.class, Self.class), new DruidNode("hadoop-indexer", null, null, null, true, false)
                 );
                 JsonConfigProvider.bind(binder, "druid.hadoop.security.kerberos", HadoopKerberosConfig.class);
+                JsonConfigProvider.bind(binder, "druid.javascript", JavaScriptConfig.class);
               }
             },
             new IndexingHadoopModule()
